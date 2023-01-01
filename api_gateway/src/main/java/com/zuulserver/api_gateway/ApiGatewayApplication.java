@@ -1,8 +1,10 @@
 package com.zuulserver.api_gateway;
 
+import com.zuulserver.api_gateway.filter.FilterClass;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableZuulProxy
@@ -12,4 +14,8 @@ public class ApiGatewayApplication {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
 
+    @Bean
+    public FilterClass preFilter (){
+       return new FilterClass();
+    }
 }
